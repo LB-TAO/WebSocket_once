@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>websocket</title>
+</head>
+<body>
+	
+	<script type='text/javascript'>
+
+		(function(){
+			console.log('ll')
+			let ws = new WebSocket('ws://localhost:9999');
+			ws.onopen = function(){
+				console.log('1111')
+				ws.send('与服务器建立连接后触发的地方')
+			};
+
+			ws.onmessage = function(res){
+				console.log('qq')
+				console.log(res);
+				// res 是MessageEvent对象;
+				console.log(res.data);
+				// 真正的消息数据是res.data
+			}
+		})();
+
+
+	</script>
+</body>
+</html>
